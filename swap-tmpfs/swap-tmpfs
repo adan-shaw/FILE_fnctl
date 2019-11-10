@@ -1,0 +1,35 @@
+mlock() 组织swap 交换内存数据到磁盘
+
+https://blog.csdn.net/fjt19900921/article/details/8074541
+
+
+swap tmpfs 的区别
+https://blog.csdn.net/xkq_lyx/article/details/14162637
+
+https://yq.aliyun.com/articles/68237
+
+https://zhidao.baidu.com/question/199386215639497405.html
+
+
+https://www.cnblogs.com/haoxiaoyu/p/0d7b3872c82c3085ed041b8548809a23.html
+
+
+
+swap 就是mmap 的基石, 系统将mmap 管理的内存, 会冲刷到swap 中.
+作为应用数据保存, mmap 也能指定文件保存数据?
+
+for anyway
+
+应用关闭的时候, mmap 会被自动清除, swap 中的交换数据也会被清除.
+
+所以swap + mmap 只是为了防止峰值内存 + 断电需求???
+
+
+实际与保持应用数据没啥关系？？
+
+linux 可以永久性保持应用数据, 但是mmap 是自动化的, 不需要自己控制.
+
+
+linux 可以将应用数据写入到一个文件中, 但是指针只能写指针值, 
+不能写指针只想的内存块, 也就是不会自动提取指针值.
+但是buf 可以整个写进去, 保存之后的数据也可以读取出来.
